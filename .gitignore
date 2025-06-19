@@ -1,0 +1,7 @@
+# don't track IDEA project files
+.idea/
+target/
+*.iml
+
+# don't publish application-dev.properties
+application-dev.properties
