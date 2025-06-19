@@ -12,6 +12,7 @@ public class DateUtils {
 
     private static final String DATE_FORMAT_PATTERN = "YYYY-MM-DD HH:MM:SS";
 
+    /** Parses a date string in the format YYYY-MM-DD HH:MM:SS. */
     public static Date parseDate(String dateString) {
         try {
             return new SimpleDateFormat(DATE_FORMAT_PATTERN)
@@ -22,12 +23,12 @@ public class DateUtils {
         return null;
     }
 
-    /*** Formats current date as YYYY-MM-DD HH:MM:SS */
+    /** Formats current date as YYYY-MM-DD HH:MM:SS. */
     public static String formatDate() {
         return formatDate(Calendar.getInstance());
     }
 
-    /*** Formats a date as YYYY-MM-DD HH:MM:SS */
+    /** Formats a date as YYYY-MM-DD HH:MM:SS. */
     public static String formatDate(Calendar date) {
         return String.format("%04d-%02d-%02d %02d:%02d:%02d",
                 date.get(Calendar.YEAR),
@@ -38,7 +39,11 @@ public class DateUtils {
                 date.get(Calendar.SECOND));
     }
 
-    public static int compareDates(String dateString1, String dateString2) {
+    public static int compare(Date date1, Date date2) {
+        return date1.compareTo(date2);
+    }
+
+    public static int compare(String dateString1, String dateString2) {
         Date date1 = parseDate(dateString1);
         Date date2 = parseDate(dateString2);
 
